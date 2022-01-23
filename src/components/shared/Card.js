@@ -3,7 +3,7 @@ import React from 'react';
 const Card = ({ child, className = '' }) => {
 
   return (
-    <div className={'Card ${className}'}'>
+    <div className={'Card ${className}'}>
         <div>
             {child}
         </div>
