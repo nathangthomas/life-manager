@@ -6,6 +6,7 @@ import  HealthHistory from './HealthHistory';
 import  Promis from './Promis';
 import Card from './shared/Card';
 import { setAssessmentTypeAction } from '../actions/assessmentTypeActions';
+import '../styles/AssessmentTypes.css'
 
 
 const AssessmentTypes = () => {
@@ -29,21 +30,21 @@ const AssessmentTypes = () => {
     return (
 
         <div className="AssessmentTypes">
-            <ul>
-              <li>
-                 <Link onClick={() => {
-                    dispatch(setAssessmentTypeAction({ assessmentType: "praPlus" }))
-                    }}
-                 >
-                    ParaPlus
-                 </Link>
-              </li>
+            <ul className="assessmentTypesList">
               <li>
                  <Link onClick={() => {
                     dispatch(setAssessmentTypeAction({ assessmentType: "promis" }))
                     }}
                  >
                     Promis
+                 </Link>
+              </li>
+              <li>
+                 <Link onClick={() => {
+                    dispatch(setAssessmentTypeAction({ assessmentType: "praPlus" }))
+                    }}
+                 >
+                    PraPlus
                  </Link>
               </li>
               <li>

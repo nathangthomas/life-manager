@@ -1,3 +1,6 @@
 .Card {
-  width: 50%;
+    margin: auto;
+    width: 34%;
+    border: 2px solid grey;
+    padding: 10px;
 }

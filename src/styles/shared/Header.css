@@ -1,0 +1,14 @@
+.Header {
+    display: flex;
+}
+
+.title {
+    flex: 1;
+    padding-left: 10px;
+}
+
+ .date {
+    margin-right: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+ }

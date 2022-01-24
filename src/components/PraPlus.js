@@ -1,24 +1,36 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from './shared/Header';
+import Footer from './shared/Footer';
+import { setPraPlusAction } from '../actions/praPlusActions';
 
 const PraPlus = () => {
+
+  const dispatch = useDispatch();
+  const praPlus = useSelector(state => state.praPlus);
+
+  function handleClick(key, value) {
+    dispatch(setPraPlusAction({ key: value }))
+  }
 
   return (
     <div className="PraPlus">
         <Header title="PraPlus" />
         <fieldset>
             <legend>In the previous 12 months, have you stayed overnight as a patient in a hospital?</legend>
-            <input type="radio" name="hospitalPatient" id="never" value="never" /><label for="track">Never</label><br />
-            <input type="radio" name="hospitalPatient" id="once" value="once" /><label for="once">Once</label><br />
-            <input type="radio" name="hospitalPatient" id="twice" value="twice" /><label for="twice">Twice</label><br />
-            <input type="radio" name="hospitalPatient" id="threePlus" value="threePlus" /><label for="threePlus">Three or More Times</label><br />
+            <input type="radio" name="overnightHospitalPatient" id="never" value="never" /><label for="track">Never</label><br />
+            <input type="radio" name="hospitalizations" id="once" value="once" /><label for="once">Once</label><br />
+            <input type="radio" name="hospitalizations" id="twice" value="twice" /><label for="twice">Twice</label><br />
+            <input type="radio" name="hospitalizations" id="threePlus" value="threePlus" /><label for="threePlus">Three or More Times</label><br />
         </fieldset>
+        <br />
         <fieldset>
             <legend>Have you ever had heart disease?</legend>
             <input type="radio" name="heartDisease" id="yes" value="yes" /><label for="yes">Yes</label><br />
             <input type="radio" name="heartDisease" id="no" value="no"  /><label for="no">No</label><br />
             <input type="radio" name="heartDisease" id="unsure" value="unsure" /><label for="message">Don&apos;t Know </label><br />
         </fieldset>
+        <br />
         <fieldset>
             <legend>Please check all conditions for which you are currently receiving medical treatment?</legend>
             <input type="checkbox" name="medicalTreatment1" id="medicalTreatment1" value="medicalTreatment1" /><label for="medicalTreatment1">Breathing Problems</label><br />
@@ -29,6 +41,8 @@ const PraPlus = () => {
             <input type="checkbox" name="medicalTreatment6" id="medicalTreatment6" value="medicalTreatment6" /><label for="medicalTreatment6">Ankle Swelling</label><br />
             <input type="checkbox" name="medicalTreatment7" id="medicalTreatment7" value="medicalTreatment7" /><label for="medicalTreatment7">Cancer</label><br />
         </fieldset>
+        <br />
+        <Footer />
     </div>
   );
 }
