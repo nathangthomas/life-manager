@@ -1,9 +1,12 @@
 import React from 'react';
 import moment from 'moment';
 import '../../styles/shared/Footer.css'
+import { useDispatch } from 'react-redux';
+import { setHealthHistory } from '../../reducers/healthHistorySlice';
 
 
-const Header = ({title}) => {
+    const Footer = ({diagnosis, hospitalizations, healthHabits}) => {
+    const dispatch = useDispatch();
 
   return (
     <div className='Footer'>
@@ -11,10 +14,21 @@ const Header = ({title}) => {
             <button type="button">Save</button>
        </div>
        <div className='submit-btn'>
-            <button type="button">Submit</button>
+            <button type="button"
+                onClick={() => {
+                    dispatch(
+                        setHealthHistory({
+                            diagnosis: diagnosis,
+                            hospitalizations: hospitalizations,
+                            healthHabits: healthHabits
+                        })
+                    )
+                }}
+             >
+             Submit</button>
        </div>
     </div>
   );
 }
 
-export default Header;
+export default Footer;

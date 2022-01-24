@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
-import healthHistoryReducer from './healthHistoryReducer';
-import assessmentTypeReducer from './assessmentTypeReducer';
-import praPlusReducer from './praPlusReducer';
+import healthHistoryReducer from './healthHistorySlice';
+import assessmentTypeReducer from './assessmentTypeSlice';
+import praPlusReducer from './praPlusSlice';
 
 const rootReducer = history =>
     combineReducers({

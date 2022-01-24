@@ -1,16 +1,17 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector} from 'react-redux';
 import Header from './shared/Header';
 import Footer from './shared/Footer';
-import { setHealthHistoryAction } from '../actions/healthHistoryActions';
+import { setHealthHistory } from '../reducers/healthHistorySlice';
+
 
 const HealthHistory = () => {
   const dispatch = useDispatch();
-  const healthHistory = useSelector(state   => state.healthHistory);
+  const healthHistory = useSelector(state => state.healthHistory);
+  const [diagnosis, setDiagnosis] = useState('');
+  const [hospitalizations, setHospitalizations] = useState('');
+  const [healthHabits, setHealthHabits] = useState('');
 
-//  function handleChange(event) {
-//    event => setHealthHistoryAction(event.target.value);
-//  }
 
   return (
     <div className="HealthHistory">
@@ -18,11 +19,11 @@ const HealthHistory = () => {
         <form>
             <legend>Please describe any current diagnosis.</legend>
             <textarea
-                className="textarea"
-                name="diagnosis"
+                defaultValue={healthHistory.diagnosis}
                 rows="8" cols="49"
-                value={healthHistory.diagnosis}
-                onChange={e => setHealthHistoryAction(e.target.value)}
+                onChange={(e) => {
+                    setDiagnosis(e.target.value);
+                }}
             >
             </textarea>
        </form>
@@ -30,25 +31,28 @@ const HealthHistory = () => {
        <form>
             <legend>Please describe any hospitalizations in the last 5 years.</legend>
             <textarea
-                className="textarea"
-                name="hospitalizations"
+                defaultValue={healthHistory.hospitalizations}
                 rows="8" cols="49"
-                onChange={({target: { value }}) => {
-                    dispatch(setHealthHistoryAction({ hospitalizations: value }));
-                }}>
+                onChange={(e) => {
+                   setHospitalizations(e.target.value);
+                }}
+            >
             </textarea>
        </form>
         <br />
        <form>
             <legend>Please describe your health habits.</legend>
             <textarea
-                name= "healthHabits"
-                rows="8"
-                cols="49">
-                </textarea>
+                defaultValue={healthHistory.healthHabits}
+                rows="8" cols="49"
+                onChange={(e) => {
+                    setHealthHabits(e.target.value);
+                }}
+             >
+             </textarea>
        </form>
         <br />
-       <Footer />
+        <Footer diagnosis={diagnosis} hospitalizations={hospitalizations} healthHabits={healthHabits} />
     </div>
   );
 };

@@ -1,28 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import  PraPlus from './PraPlus';
 import  HealthHistory from './HealthHistory';
 import  Promis from './Promis';
 import Card from './shared/Card';
-import { setAssessmentTypeAction } from '../actions/assessmentTypeActions';
+import { setAssessmentType } from '../reducers/assessmentTypeSlice';
 import '../styles/AssessmentTypes.css'
 
 
 const AssessmentTypes = () => {
 
     const dispatch = useDispatch();
-    const type = useSelector(state => state.assessmentType);
-
+    const assessment = useSelector(state => state.assessmentType);
+    const [type, setType] = useState('');
 
     function renderAssessment() {
-      if (type.assessmentType === "praPlus") {
+      if (type === "praPlus") {
         return <PraPlus />;
       }
-      if (type.assessmentType === "promis") {
+      if (type === "promis") {
          return <Promis />;
        }
-      if (type.assessmentType === "healthHistory") {
+      if (type === "healthHistory") {
          return <HealthHistory />;
       }
     }
@@ -33,23 +33,38 @@ const AssessmentTypes = () => {
             <ul className="assessmentTypesList">
               <li>
                  <Link onClick={() => {
-                    dispatch(setAssessmentTypeAction({ assessmentType: "promis" }))
+                    setType("promis")
+                        dispatch(
+                            setAssessmentType({
+                                assessmentType: type
+                            })
+                        )
                     }}
                  >
                     Promis
                  </Link>
               </li>
               <li>
-                 <Link onClick={() => {
-                    dispatch(setAssessmentTypeAction({ assessmentType: "praPlus" }))
+                <Link onClick={() => {
+                    setType("praPlus")
+                        dispatch(
+                            setAssessmentType({
+                                assessmentType: type
+                            })
+                        )
                     }}
                  >
                     PraPlus
                  </Link>
               </li>
               <li>
-                 <Link onClick={() => {
-                    dispatch(setAssessmentTypeAction({ assessmentType: "healthHistory" }))
+                <Link onClick={() => {
+                    setType("healthHistory")
+                        dispatch(
+                            setAssessmentType({
+                                assessmentType: type
+                            })
+                        )
                     }}
                  >
                     Health History
@@ -59,7 +74,7 @@ const AssessmentTypes = () => {
             </ul>
 
             <Card
-                child={renderAssessment()} className="Sample"
+                child={renderAssessment()}
             />
 
         </div>
