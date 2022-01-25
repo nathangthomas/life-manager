@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/shared/Card.css'
 
-const Card = ({ child, className = '' }) => {
+const Card = ({ child = '' }) => {
 
   return (
     <div className='Card'>

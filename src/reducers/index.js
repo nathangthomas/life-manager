@@ -6,12 +6,12 @@ import praPlusReducer from './praPlusSlice';
 import promisReducer from './promisSlice';
 
 const rootReducer = history =>
-    combineReducers({
-        promis: promisReducer,
-        praPlus: praPlusReducer,
-        assessmentType: assessmentTypeReducer,
-        healthHistory: healthHistoryReducer,
-        router: connectRouter(history),
-    });
+  combineReducers({
+    promis: promisReducer,
+    praPlus: praPlusReducer,
+    assessmentType: assessmentTypeReducer,
+    healthHistory: healthHistoryReducer,
+    router: connectRouter(history),
+  });
 
 export default rootReducer;

@@ -40,26 +40,26 @@ const Promis = () => {
             <input type="radio" name="health" id="5" value="5" onClick={() => {setHealth("5")}}/><label for="5">5</label>
          </fieldset>
          <br />
-       <div className='Footer'>
-              <div className='save-btn'>
-                   <button type="button">Save</button>
+         <div className='Footer'>
+            <div className='save-btn'>
+              <button type="button">Save</button>
+            </div>
+            <div className='submit-btn'>
+              <button type="button"
+                 onClick={() => {
+                   dispatch(
+                     setPromis({
+                        activities: activities,
+                        pain: pain,
+                        health: health
+                     })
+                   )
+                 }}
+              >
+              Submit
+              </button>
               </div>
-              <div className='submit-btn'>
-                   <button type="button"
-                       onClick={() => {
-                           dispatch(
-                               setPromis({
-                                    activities: activities,
-                                    pain: pain,
-                                    health: health
-                               })
-                           )
-                       }}
-                    >
-                    Submit</button>
-              </div>
-           </div>
-
+         </div>
     </div>
   );
 }

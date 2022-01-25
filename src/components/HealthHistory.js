@@ -14,63 +14,65 @@ const HealthHistory = () => {
 
   return (
     <div className="HealthHistory">
-        <Header title="Health History" />
+      <Header title="Health History" />
         <form>
-            <legend>Please describe any current diagnosis.</legend>
-            <textarea
-                defaultValue={healthHistory.diagnosis}
-                rows="8" cols="49"
-                onChange={(e) => {
-                    setDiagnosis(e.target.value);
-                }}
+          <legend>Please describe any current diagnosis.</legend>
+          <textarea
+              defaultValue={healthHistory.diagnosis}
+              rows="8"
+              cols="49"
+              onChange={(e) => {
+                  setDiagnosis(e.target.value);
+              }}
+            >
+            </textarea>
+        </form>
+        <br />
+        <form>
+          <legend>Please describe any hospitalizations in the last 5 years.</legend>
+          <textarea
+              defaultValue={healthHistory.hospitalizations}
+              rows="8"
+              cols="49"
+              onChange={(e) => {
+                 setHospitalizations(e.target.value);
+              }}
             >
             </textarea>
        </form>
-        <br />
+       <br />
        <form>
-            <legend>Please describe any hospitalizations in the last 5 years.</legend>
-            <textarea
-                defaultValue={healthHistory.hospitalizations}
-                rows="8" cols="49"
-                onChange={(e) => {
-                   setHospitalizations(e.target.value);
-                }}
-            >
-            </textarea>
+          <legend>Please describe your health habits.</legend>
+          <textarea
+              defaultValue={healthHistory.healthHabits}
+              rows="8"
+              cols="49"
+              onChange={(e) => {
+                  setHealthHabits(e.target.value);
+              }}
+           >
+          </textarea>
        </form>
-        <br />
-       <form>
-            <legend>Please describe your health habits.</legend>
-            <textarea
-                defaultValue={healthHistory.healthHabits}
-                rows="8" cols="49"
-                onChange={(e) => {
-                    setHealthHabits(e.target.value);
-                }}
-             >
-             </textarea>
-       </form>
-        <br />
-         <div className='Footer'>
+       <br />
+          <div className='Footer'>
             <div className='save-btn'>
-                 <button type="button">Save</button>
+              <button type="button">Save</button>
             </div>
             <div className='submit-btn'>
-                 <button type="button"
-                     onClick={() => {
-                         dispatch(
-                             setHealthHistory({
-                                  diagnosis: diagnosis,
-                                  hospitalizations: hospitalizations,
-                                  healthHabits: healthHabits
-                             })
-                         )
-                     }}
-                  >
-                  Submit</button>
-              </div>
-         </div>
-
+              <button type="button"
+                 onClick={() => {
+                   dispatch(
+                     setHealthHistory({
+                        diagnosis: diagnosis,
+                        hospitalizations: hospitalizations,
+                        healthHabits: healthHabits
+                     })
+                   )
+                 }}
+              >
+                Submit</button>
+            </div>
+          </div>
     </div>
   );
 };
