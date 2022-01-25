@@ -2,8 +2,6 @@
 
 Life Manager was built with exploring Redux and React Hooks in mind. 
 
-Users can also choose to make an account where in future iterations they will be able to opt in for a service that will automatically send out alerts to make preparations when the weather is forecasted to drop below 40 degrees.  
-
 # Built Using
 - React
 - Redux
