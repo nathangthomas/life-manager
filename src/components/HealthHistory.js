@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import Header from './shared/Header';
-import Footer from './shared/Footer';
 import { setHealthHistory } from '../reducers/healthHistorySlice';
 
 
