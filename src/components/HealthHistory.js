@@ -52,7 +52,26 @@ const HealthHistory = () => {
              </textarea>
        </form>
         <br />
-        <Footer diagnosis={diagnosis} hospitalizations={hospitalizations} healthHabits={healthHabits} />
+         <div className='Footer'>
+            <div className='save-btn'>
+                 <button type="button">Save</button>
+            </div>
+            <div className='submit-btn'>
+                 <button type="button"
+                     onClick={() => {
+                         dispatch(
+                             setHealthHistory({
+                                  diagnosis: diagnosis,
+                                  hospitalizations: hospitalizations,
+                                  healthHabits: healthHabits
+                             })
+                         )
+                     }}
+                  >
+                  Submit</button>
+              </div>
+         </div>
+
     </div>
   );
 };

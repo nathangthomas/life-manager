@@ -2,7 +2,17 @@
 
 }
 
+.typesTitle {
+    padding: 10px;
+    font-weight: bolder;
+    font-size: 22px;
+}
+
 .assessmentTypesList {
     text-align: center;
-    padding: 25px 0px 25px 0px;
+    padding: 15px 10px 20px 10px;
+    width: 34%;
+    border: 2px solid grey;
+    margin: 20px auto 10px auto;
+    list-style-type: none;
 }

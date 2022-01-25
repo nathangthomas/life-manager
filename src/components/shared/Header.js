@@ -9,7 +9,7 @@ const Header = ({title}) => {
         <h1 className='title'> {title} </h1>
         <div className='date'>
             <label for="date">Date: </label>
-            <input type="text" size="10"  id="date" name="date" value={moment().format('MM/DD/YYYY')} />
+            <input type="text" size="10"  id="date" name="date" defaultValue={moment().format('MM/DD/YYYY')} />
         </div>
     </div>
   );

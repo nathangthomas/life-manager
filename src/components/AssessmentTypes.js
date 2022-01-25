@@ -28,9 +28,9 @@ const AssessmentTypes = () => {
     }
 
     return (
-
         <div className="AssessmentTypes">
             <ul className="assessmentTypesList">
+              <div className="typesTitle"> Assessment Types </div>
               <li>
                  <Link onClick={() => {
                     setType("promis")
@@ -70,13 +70,10 @@ const AssessmentTypes = () => {
                     Health History
                  </Link>
               </li>
-
             </ul>
-
             <Card
                 child={renderAssessment()}
             />
-
         </div>
     );
 }

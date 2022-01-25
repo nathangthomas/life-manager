@@ -8,7 +8,6 @@ import { setPraPlus } from '../reducers/praPlusSlice';
 const PraPlus = () => {
 
   const dispatch = useDispatch();
-  const praPlus = useSelector(state => state.praPlus);
   const [hospitalizations, setHospitalizations] = useState('');
   const [heartDisease, setHeartDisease] = useState('');
   const [complications, setComplications] = useState([]);
@@ -42,23 +41,25 @@ const PraPlus = () => {
             <input type="checkbox" onClick={() => {setComplications([...complications, "cancer"])}}/><label>Cancer</label><br />
         </fieldset>
         <br />
-
-        <div className='submit-btn'>
-                <button type="button"
-                    onClick={() => {
-                        dispatch(
-                            setPraPlus({
-                                hospitalizations: hospitalizations,
-                                heartDisease: heartDisease,
-                                complications: complications
-                            })
-                        )
-                    }}
-                 >
-              Submit</button>
-         </div>
-
-        <Footer />
+       <div className='Footer'>
+              <div className='save-btn'>
+                   <button type="button">Save</button>
+              </div>
+              <div className='submit-btn'>
+                   <button type="button"
+                       onClick={() => {
+                           dispatch(
+                               setPraPlus({
+                                    hospitalizations: hospitalizations,
+                                    heartDisease: heartDisease,
+                                    complications: complications
+                               })
+                           )
+                       }}
+                    >
+                    Submit</button>
+              </div>
+           </div>
     </div>
   );
 }
